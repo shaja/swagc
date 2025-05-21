@@ -115,15 +115,6 @@ This document explains each component of the provided Python code for WhatsApp c
 
 ---
 
-## Potential Improvements
-
-- **Efficiency:** Some loops (especially in simulation and clustering) could be optimized for large datasets.
-- **Parameterization:** Expose more parameters for tuning (e.g., sleep window thresholds).
-- **Docstrings and Typing:** Adding function docstrings and type hints would improve clarity and maintainability.
-- **Error Handling:** More robust handling for edge cases, such as users with sparse data.
-
----
-
 ## Summary Table of Main Components
 
 | Function/Section                    | Purpose                                                      | Output/Role in Pipeline                     |
