@@ -3,20 +3,8 @@
 This document explains each component of the provided Python code for WhatsApp chat data analysis and simulation. The workflow is designed to analyze real chat data, model user behaviors, and generate realistic synthetic conversations.
 
 ---
-link, image, video, audio ----> consider
-Sleep Activity -----> Ignore
-build_transition_matrix
 
-## 1. Imports
-
-- **pandas, numpy**: For data manipulation and numerical operations.
-- **scipy.stats.poisson**: (Imported but not directly used in this code.)
-- **datetime, timedelta**: For handling and manipulating date and time.
-- **scipy.spatial.distance.jensenshannon**: For measuring similarity between two probability distributions (Jensen-Shannon divergence).
-
----
-
-## 2. Sleep Pattern Detection
+## 1. Sleep Pattern Detection
 
 ### `detect_sleep_pattern(user_df)`
 - **Purpose**: Estimates the user's sleep window based on their message activity.
@@ -29,7 +17,7 @@ build_transition_matrix
 
 ---
 
-## 3. Markov Transition Matrix Builder
+## 2. Markov Transition Matrix Builder
 
 ### `build_transition_matrix(df)`
 - **Purpose**: Models the probability that a message from one user is followed by another, for each hour.
@@ -40,7 +28,7 @@ build_transition_matrix
 
 ---
 
-## 4. Hourly Reply Probability Matrix
+## 3. Hourly Reply Probability Matrix
 
 ### `hourly_reply_probability_advanced(df, reply_window_minutes=60, cluster_interval=30)`
 - **Purpose**: Calculates, for each user and hour, the probability that a message is a reply.
@@ -55,7 +43,7 @@ build_transition_matrix
 
 ---
 
-## 5. Hourly Message Count Matrix
+## 4. Hourly Message Count Matrix
 
 ### `hourly_message_count_matrix(df)`
 - **Purpose**: Counts the number of messages each user sends per hour.
@@ -65,7 +53,7 @@ build_transition_matrix
 
 ---
 
-## 6. Calibrate Reply Probability
+## 5. Calibrate Reply Probability
 
 ### `calibrate_reply_probability(prob_matrix, real_reply_ratio, sim_reply_ratio, min_prob=0.01, max_prob=0.99)`
 - **Purpose**: Adjusts the reply probability matrix so that the simulated reply ratio matches the real one.
@@ -76,7 +64,7 @@ build_transition_matrix
 
 ---
 
-## 7. Enhanced & Calibrated Simulation Function
+## 6. Enhanced & Calibrated Simulation Function
 
 ### `enhanced_simulator(df, prob_matrix, count_matrix, transitions)`
 - **Purpose**: Simulates a WhatsApp chat log matching the real data's daily message counts, user activity, and reply patterns.
@@ -91,7 +79,7 @@ build_transition_matrix
 
 ---
 
-## 8. Validation Metrics
+## 7. Validation Metrics
 
 ### `calculate_metrics(real_df, sim_df)`
 - **Purpose**: Quantitatively compares real and simulated datasets.
@@ -104,7 +92,7 @@ build_transition_matrix
 
 ---
 
-## 9. Usage Example
+## 8. Usage Example
 
 **Workflow:**
 1. Preprocess data: Convert 'Timestamp' to datetime.
